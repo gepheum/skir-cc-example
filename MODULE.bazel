@@ -5,7 +5,7 @@ git_override(
     module_name = "skir-client",
     remote = "https://github.com/gepheum/skir-cc-gen",
     # Choose the most recent commit
-    commit = "f317aa796ed1847a54e579abf1a18dd97763c17d",
+    commit = "cd2824511e567339cfe2fcd1e82b7c6963793140",
     strip_prefix = "client/",
 )
 

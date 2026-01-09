@@ -26,8 +26,7 @@ class ServiceImpl {
 
   absl::StatusOr<skirout_service::GetUserResponse> operator()(
       skirout_service::GetUser, skirout_service::GetUserRequest request,
-      const skir::service::HttpHeaders& request_headers,
-      skir::service::HttpHeaders& response_headers) {
+      const skir::service::HttpHeaders& request_headers) {
     const int64_t user_id = request.user_id;
     if (user_id == 0) {
       return absl::UnknownError("invalid user id: 0");
@@ -42,8 +41,7 @@ class ServiceImpl {
 
   absl::StatusOr<skirout_service::AddUserResponse> operator()(
       skirout_service::AddUser, skirout_service::AddUserRequest request,
-      const skir::service::HttpHeaders& request_headers,
-      skir::service::HttpHeaders& response_headers) {
+      const skir::service::HttpHeaders& request_headers) {
     skirout_user::User& user = request.user;
     const int64_t user_id = user.user_id;
     id_to_user_[user_id] = std::move(user);

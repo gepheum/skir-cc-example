@@ -38,7 +38,7 @@ endif()
 FetchContent_Declare(
   skir-client
   GIT_REPOSITORY https://github.com/gepheum/skir-cc-gen.git
-  GIT_TAG        44070ac519ae13bb85ae8f68498a2b633b48fac5
+  GIT_TAG        7db909892974e6a20dc069dd4a4d1103e57ef546
   SOURCE_SUBDIR  client
 )
 

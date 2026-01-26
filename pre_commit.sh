@@ -2,7 +2,21 @@
 
 set -e
 
-find . -not -path 'skirout/*' -iname '*.cc' -o -iname '*.h' | xargs clang-format -i
+# Format C++ files (excluding build/, skirout/, and hidden directories)
+find . -type f \( -name '*.cc' -o -name '*.h' \) \
+  -not -path './build/*' \
+  -not -path './skirout/*' \
+  -not -path './.*/*' \
+  | xargs -r clang-format -i
+
+# Generate skir code
 npx skir gen
-bazel build :all
-bazel test :all
+
+# Build and test
+if [ ! -d "build" ]; then
+  mkdir build
+fi
+cd build
+cmake ..
+cmake --build .
+ctest --output-on-failure

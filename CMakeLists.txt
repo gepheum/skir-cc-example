@@ -15,30 +15,11 @@ include(FetchContent)
 # Dependencies
 # ============================================================================
 
-# Abseil
-FetchContent_Declare(
-  absl
-  GIT_REPOSITORY https://github.com/abseil/abseil-cpp.git
-  GIT_TAG        20250814.0
-)
-set(ABSL_PROPAGATE_CXX_STD ON)
-set(ABSL_ENABLE_INSTALL OFF)
-
-# GoogleTest (if building tests)
-if(BUILD_TESTING)
-  FetchContent_Declare(
-    googletest
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG        v1.17.0
-  )
-  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-endif()
-
 # skir-client
 FetchContent_Declare(
   skir-client
   GIT_REPOSITORY https://github.com/gepheum/skir-cc-gen.git
-  GIT_TAG        7db909892974e6a20dc069dd4a4d1103e57ef546
+  GIT_TAG        fdcb942989db1d526e942413dd0b79dd9614a900
   SOURCE_SUBDIR  client
 )
 
@@ -51,10 +32,9 @@ FetchContent_Declare(
 set(HTTPLIB_REQUIRE_OPENSSL OFF)
 
 # Make all content available
-FetchContent_MakeAvailable(absl httplib skir-client)
+FetchContent_MakeAvailable(httplib skir-client)
 
 if(BUILD_TESTING)
-  FetchContent_MakeAvailable(googletest)
   enable_testing()
   include(GoogleTest)
 endif()

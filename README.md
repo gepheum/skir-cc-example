@@ -4,12 +4,10 @@ Example showing how to use skir's [C++ code generator](https://github.com/gepheu
 
 ## Build and run the example
 
-This project supports two build systems: **CMake** (recommended) and **Bazel**. Choose the one that fits your workflow.
-
 ### Prerequisites
 
 - **Node.js** - for running the Skir code generator
-- **CMake 3.20+** (recommended) or **Bazel** - for building the C++ code
+- **CMake 3.20+** - for building the C++ code
 - A **C++17 compatible compiler** (GCC, Clang, or MSVC)
 
 If you use Homebrew on macOS:
@@ -46,7 +44,7 @@ While the process is running, every modification to a .skir file in the source
 directory will trigger code generation. 
 The process won't stop until you terminate it.
 
-### Build with CMake (Recommended)
+### Build with CMake
 
 CMake automatically fetches and builds all dependencies (Abseil, cpp-httplib, GoogleTest, and skir-client).
 
@@ -96,28 +94,6 @@ For release builds with optimizations:
 cmake -DCMAKE_BUILD_TYPE=Release ..
 ```
 
-### Build with Bazel (Alternative)
-
-If you prefer Bazel:
-
-```shell
-brew install bazel
-```
-
-```shell
-# Run example.cc - contains code snippets showing how to use skir-generated data types
-bazel run :example
-
-# Unit tests for skir-generated data types
-bazel test :example.test
-
-# Start a skir service
-bazel run :service_start
-
-# Send RPCs to the skir service (run in a different terminal)
-bazel run :service_client
-```
-
 ## IDE support
 
 ### VSCode with CMake
@@ -135,13 +111,3 @@ The `compile_commands.json` file provides:
 *   Include management
 *   Code formatting
 *   Simple refactorings
-
-### VSCode with Bazel
-
-If using Bazel, every time you change the rules in `BUILD.bazel`, run:
-
-```shell
-bazel run @hedron_compile_commands//:refresh_all
-```
-
-This will regenerate the `compile_commands.json` file with the same IDE benefits as above.

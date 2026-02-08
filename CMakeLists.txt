@@ -32,6 +32,7 @@ FetchContent_Declare(
 set(HTTPLIB_REQUIRE_OPENSSL OFF)
 set(HTTPLIB_REQUIRE_ZLIB OFF)
 set(HTTPLIB_REQUIRE_BROTLI OFF)
+set(HTTPLIB_USE_ZSTD_IF_AVAILABLE OFF)
 
 # Make all content available
 FetchContent_MakeAvailable(httplib skir-client)

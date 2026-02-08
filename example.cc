@@ -154,7 +154,7 @@ int main() {
   // JSON, and serialization/deserialization can be a bit faster.
   // Only use it when this small performance gain is likely to matter, which
   // should be rare.
-  const skir::ByteString john_bytes = skir::ToBytes(john);
+  skir::ByteString john_bytes = skir::ToBytes(john);
 
   // DESERIALIZATION
 

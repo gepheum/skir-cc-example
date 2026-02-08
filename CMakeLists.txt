@@ -30,6 +30,8 @@ FetchContent_Declare(
   GIT_TAG        v0.22.0
 )
 set(HTTPLIB_REQUIRE_OPENSSL OFF)
+set(HTTPLIB_REQUIRE_ZLIB OFF)
+set(HTTPLIB_REQUIRE_BROTLI OFF)
 
 # Make all content available
 FetchContent_MakeAvailable(httplib skir-client)

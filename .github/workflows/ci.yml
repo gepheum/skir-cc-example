@@ -16,16 +16,10 @@ jobs:
         with:
           clang-format-version: 20
       - run: npx skir format --ci
-      - uses: bazel-contrib/setup-bazel@0.14.0
-        with:
-          # Avoid downloading Bazel every time.
-          bazelisk-cache: true
-          # Store build cache per workflow.
-          disk-cache: ${{ github.workflow }}
-          # Share repository cache between workflows.
-          repository-cache: true
       - run: npx skir gen
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
       - name: Build C++
-        run: bazel build :all
+        run: cmake --build build -j$(nproc)
       - name: Run unit tests
-        run: bazel test :all
+        run: cd build && ctest --output-on-failure

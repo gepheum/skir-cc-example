@@ -1,10 +1,10 @@
 // Starts a skir service on http://localhost:8787/?myapi
 //
 // Run with:
-//   bazel run :service_start
+//   ./build/service_start
 //
 // Send RPCs to the service with:
-//   bazel run :service_client
+//   ./build/service_client
 
 #include <cstdint>
 #include <iostream>

@@ -1,7 +1,5 @@
 .DS_Store
 .cache
-MODULE.bazel.lock
-bazel-*
 dist
 node_modules
 skirout

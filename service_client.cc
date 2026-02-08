@@ -1,10 +1,10 @@
 // Sends RPCs to a skir service.
 //
 // Run with:
-//   bazel run :service_client
+//   ./build/service_client
 //
 // Assumes you are already running in another process:
-//   bazel run :service_start
+//   ./build/service_start
 
 #include <iostream>
 #include <memory>

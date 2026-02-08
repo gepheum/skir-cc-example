@@ -1,7 +1,7 @@
 // Unit tests examples
 //
 // Run with:
-//   bazel test :example.test
+//   ctest --output-on-failure
 
 #include <gtest/gtest.h>
 

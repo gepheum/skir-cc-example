@@ -1,7 +1,7 @@
 // Code snippets showing how to use skir-generated data classes.
 //
 // Run with:
-//   bazel run :example
+//   ./build/example
 
 #include <iostream>
 
@@ -134,7 +134,8 @@ int main() {
   // SERIALIZATION
 
   // Serialize a skir value to JSON with ToDenseJson or ToReadableJson.
-  std::cout << skir::ToDenseJson(john) << "\n";
+  std::string john_dense_json = skir::ToDenseJson(john);
+  std::cout << john_dense_json << "\n";
   // [42,"John Doe"]
 
   std::cout << skir::ToReadableJson(john) << "\n";
@@ -153,14 +154,16 @@ int main() {
   // JSON, and serialization/deserialization can be a bit faster.
   // Only use it when this small performance gain is likely to matter, which
   // should be rare.
-  std::cout << skir::ToBytes(john).as_string() << "\n";
-  // skir�+Jane Doe����Fluffy�cat��Rex�dog
+  const skir::ByteString john_bytes = skir::ToBytes(john);
 
   // DESERIALIZATION
 
   // Use Parse to deserialize a skir value from JSON or binary format.
-  absl::StatusOr<User> maybe_john = skir::Parse<User>(skir::ToDenseJson(john));
-  assert(maybe_john.ok() && *maybe_john == john);
+  absl::StatusOr<User> reserialized_john = skir::Parse<User>(john_dense_json);
+  assert(reserialized_john.ok() && *reserialized_john == john);
+
+  reserialized_john = skir::Parse<User>(john_bytes.as_string());
+  assert(reserialized_john.ok() && *reserialized_john == john);
 
   // KEYED ARAYS
 

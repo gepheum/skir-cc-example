@@ -1,4 +1,4 @@
-// Sends RPCs to a skir service.
+// Sends RPCs to a SkirRPC service.
 //
 // Run with:
 //   ./build/service_client

@@ -73,10 +73,10 @@ cmake --build . -j8          # or specify number of cores
 # Run tests
 ctest --output-on-failure
 
-# Start a skir service
+# Start a SkirRPC service
 ./service_start
 
-# Send RPCs to the skir service (run in a different terminal)
+# Send RPCs to the SkirRPC service (run in a different terminal)
 ./service_client
 ```
 

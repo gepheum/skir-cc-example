@@ -1,4 +1,4 @@
-// Starts a skir service on http://localhost:8787/?myapi
+// Starts a SkirRPC service on http://localhost:8787/?myapi
 //
 // Run with:
 //   ./build/service_start

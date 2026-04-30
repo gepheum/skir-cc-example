@@ -19,7 +19,7 @@ include(FetchContent)
 FetchContent_Declare(
   skir-client
   GIT_REPOSITORY https://github.com/gepheum/skir-cc-gen.git
-  GIT_TAG        fdcb942989db1d526e942413dd0b79dd9614a900
+  GIT_TAG        v1.0.16
   SOURCE_SUBDIR  client
 )
 

@@ -192,8 +192,8 @@ int main() {
   // COMPOSITE SERIALIZERS
 
   // Skir type: string?
-  assert(skir::ToDenseJson(std::optional<std::string>("foo")) == "\"foo\"");
-  assert(skir::ToDenseJson(std::optional<std::string>()) == "null");
+  assert(skir::ToDenseJson(absl::optional<std::string>("foo")) == "\"foo\"");
+  assert(skir::ToDenseJson(absl::optional<std::string>()) == "null");
 
   // Skir type: [bool]
   assert(skir::ToDenseJson(std::vector<bool>{true, false}) == "[1,0]");

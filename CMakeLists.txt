@@ -18,9 +18,8 @@ include(FetchContent)
 # skir-client
 FetchContent_Declare(
   skir-client
-  GIT_REPOSITORY https://github.com/gepheum/skir-cc-gen.git
-  GIT_TAG        v1.0.16
-  SOURCE_SUBDIR  client
+  GIT_REPOSITORY https://github.com/gepheum/skir-cc-client.git
+  GIT_TAG        v1.0.18
 )
 
 # cpp-httplib
